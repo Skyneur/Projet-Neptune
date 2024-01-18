@@ -1,0 +1,11 @@
+.nav.nav-container {
+    margin-bottom: -1px;
+}
+
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('/path-to-your-fonts/BebasNeue-Regular.ttf');
+}
+body {
+    font-family: 'Bebas Neue', sans-serif;
+}
