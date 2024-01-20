@@ -46,8 +46,8 @@ include __DIR__ . '/../../_includes/document_start.php';
                 <th>Canapé</th>
                 <th>Actions</th>
             </tr>
-            <tr>
                 <?php foreach($chambres as $chambre) { ?>
+            <tr>
                     <td><?php echo $chambre['id']; ?></td>
                     <td><?php echo $chambre['number']; ?></td>
                     <td><?php echo $expo[$chambre['expo']]; ?></td>

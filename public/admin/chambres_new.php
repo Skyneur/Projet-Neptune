@@ -8,11 +8,10 @@ require_once __DIR__ . '/../../_includes/admin_navbar.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (
         !isset($_POST['number'])
-        || !isset($_POST['expo'])
-
-        || empty($_POST['number'])
-        || empty($_POST['expo'])
-    ) {
+    || !isset($_POST['expo'])
+    || empty($_POST['number'])
+    || ($_POST['expo'] === "")
+) {
         die("Le formulaire n'est pas complet.");
     }
 

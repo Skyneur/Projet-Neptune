@@ -33,14 +33,12 @@
                                 Mon profil
                             </a>
                         </li>
-                        <?php if (isset($isAdmin)) { ?>
-                            <li>
-                                <a href="/admin.php" class="dropdown-item">
-                                    <i class="fa-solid fa-fw fa-user-shield"></i>
-                                    Administration
-                                </a>
-                            </li>
-                        <?php } ?>
+                        <?php if ($isAdmin) { ?>
+    <a href="/admin.php" class="dropdown-item">
+        <i class="fa-solid fa-fw fa-user-shield"></i>
+        Administration
+    </a>
+<?php } ?>
                         <li>
                             <a href="?action=logout" class="dropdown-item">
                                 <i class="fa-solid fa-fw fa-power-off"></i>
