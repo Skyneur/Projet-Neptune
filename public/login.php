@@ -33,61 +33,157 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 ?>
-<?php include __DIR__ . '/../_includes/document_start.php'; ?>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <div class="container my-5">
-        <div class="mx-auto" style="max-width: 30rem;">
-            <div class="card bg-body-tertiary">
-                <div class="card-body">
-                    <div class="login-header" style="display: flex; align-items: center;">
-                        <h1 style="margin-right: 10px;">Se connecter</h1>
-                        <img src="https://www.pngmart.com/files/22/Neptune-PNG-Pic.png" style="width: 35px;">
-                    </div>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Neptune</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+        <link rel="icon" href="https://www.pngmart.com/files/22/Neptune-PNG-Pic.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" defer></script>
+    <script src="https://kit.fontawesome.com/a07d46abc4.js" crossorigin="anonymous" defer></script>
+</head>
+<body>
+<?php include __DIR__ . '/../_includes/navbar.php'; ?>
+<div class="form-container sign-in-form">
+    <div class="form-box sign-in-box">
+        <h2>Se Connecter</h2>
                     <form action="" method="post">
-                        <div class="mb-3">
-                            <label for="email">Adresse email</label>
-                            <input type="email" name="email" id="email" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="password">Mot de passe</label>
-                            <input type="password" name="password" id="password" class="form-control">
-                        </div>
-                        <div class="text-end">
-                            <button type="submit" class="btn btn-primary">
-                                Se connecter
-                            </button>
-                        </div>
-                </div>
+            <div class="field">
+                <i class="uil uil-at"></i>
+                <input type="email" placeholder="Email" name="email" required>
+            </div>
+            <div class="field">
+                <i class="uil uil-lock-alt"></i>
+                <input class="password" type="password" placeholder="Mot De Passe" name="password" required>
+                <div class="eye-btn"><i class="uil uil-eye-slash"></i></div>
+            </div>
+            <div class="forgot-link">
+                <a href="">Mot de passe oublié?</a>
+            </div>
+            <input class="submit-btn" type="submit" value="Envoyer">
+        </form>
+        <div class="login-options">
+            <p class="text">Se connecter avec</p>
+            <div class="other-logins">
+                <a href=""><img src="images/google.png" alt=""></a>
+                <a href=""><img src="images/facebook.png" alt=""></a>
+                <a href=""><img src="images/apple.png" alt=""></a>
             </div>
         </div>
     </div>
+    <div class="imgBox sign-in-imgBox">
+        <div class="sliding-link">
+            <p>Vous n'avez pas de compte ?</p>
+            <span class="sign-up-btn">S'inscrire</span>
+        </div>
+        <img src="images/signin-img.png" alt="">
+    </div>
+</div>
 
-    <style>
-        body {
-            background: url('/images/5.jpg') no-repeat center center fixed;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-        }
+<div class="form-container sign-up-form">
+    <div class="imgBox sign-up-imgBox">
+        <div class="sliding-link">
+            <p>Vous avez déjà un compte ?</p>
+            <span class="sign-in-btn">Se Connecter</span>
+        </div>
+        <img src="images/signup-img.png" alt="">
+    </div>
+    <div class="form-box sign-up-box">
+        <h2>S'inscrire</h2>
+        <div class="login-options">
+            <div class="other-logins">
+                <a href=""><img src="images/google.png" alt=""></a>
+                <a href=""><img src="images/facebook.png" alt=""></a>
+                <a href=""><img src="images/apple.png" alt=""></a>
+            </div>
+            <p class="text">Se connecter avec un mail<p>
+        </div>
+                    <form action="" method="post">
+            <div class="field">
+                <i class="uil uil-at"></i>
+                <input type="email" placeholder="Email" name="email" required>
+            </div>
+            <div class="field">
+                <i class="uil uil-user"></i>
+                <input type="text" placeholder="Nom" required>
+            </div>
+            <div class="field">
+                <i class="uil uil-lock-alt"></i>
+                <input type="password" placeholder="Mot De Passe" name="password" required>
+            </div>
+            <div class="field">
+                <i class="uil uil-lock-access"></i>
+                <input type="password" placeholder="Mot De Passe" required>
+            </div>
+            <input class="submit-btn" type="submit" value="Envoyer">
+        </form>
+    </div>
+</div>
 
-        .card-body {
-            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.85);
-        }
+<script>
+    //input fields focus effects
+    const textInputs = document.querySelectorAll("input");
 
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(100, 128, 128, 0.7);
+    textInputs.forEach(textInput => {
+        textInput.addEventListener("focus", () => {
+            let parent = textInput.parentNode;
+            parent.classList.add("active");
+        });
+
+        textInput.addEventListener("blur", () => {
+            let parent = textInput.parentNode;
+            parent.classList.remove("active");
+        });
+    });
+
+    //password show/hide button
+    const passwordInput = document.querySelector(".password-input");
+    const eyeBtn = document.querySelector(".eye-btn");
+
+    eyeBtn.addEventListener("click", () => {
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            eyeBtn.innerHTML = "<i class='uil uil-eye'></i>";
+        } else {
+            passwordInput.type = "password";
+            eyeBtn.innerHTML = "<i class='uil uil-eye-slash'></i>";
         }
-    </style>
-<?php include __DIR__ . '/../_includes/document_end.php'; ?>
+    });
+
+    //sliding between sign-in form and sign-up form
+    const signUpBtn = document.querySelector(".sign-up-btn");
+    const signInBtn = document.querySelector(".sign-in-btn");
+    const signUpForm = document.querySelector(".sign-up-form");
+    const signInForm = document.querySelector(".sign-in-form");
+
+    signUpBtn.addEventListener("click", () => {
+        signInForm.classList.add("hide");
+        signUpForm.classList.add("show");
+        signInForm.classList.remove("show");
+    });
+
+    signInBtn.addEventListener("click", () => {
+        signInForm.classList.remove("hide");
+        signUpForm.classList.remove("show");
+        signInForm.classList.add("show");
+    });
+
+    // Check URL on page load
+    window.onload = function() {
+        var urlParams = new URLSearchParams(window.location.search);
+
+        if (urlParams.get('register')) { // Changed to 'register'
+            signInForm.classList.add("hide");
+            signUpForm.classList.add("show");
+            signInForm.classList.remove("show");
+        }
+    }
+</script>
+
+</body>
+</html>

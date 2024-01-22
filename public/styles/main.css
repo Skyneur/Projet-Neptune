@@ -9,3 +9,9 @@
 body {
     font-family: 'Bebas Neue', sans-serif;
 }
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999; /* un nombre arbitrairement élevé pour s'assurer qu'il est au-dessus des autres éléments */
+}

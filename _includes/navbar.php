@@ -53,7 +53,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="/register.php">
+                            <a class="dropdown-item" href="/login.php?register=1">
                                 <i class="fa-duotone fa-user-plus"  style="--fa-primary-color: #137c8b; --fa-secondary-color: #344d59;"></i>
                                 S'inscrire
                             </a>
