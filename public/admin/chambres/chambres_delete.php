@@ -1,8 +1,8 @@
 <?php
 
-require_once __DIR__ . '/../../database.php';
-require_once __DIR__ . '/../../_includes/guard_admin.php';
-require_once __DIR__ . '/../../_includes/admin_navbar.php';
+require_once __DIR__ . '/../../../database.php';
+require_once __DIR__ . '/../../../_includes/guard_admin.php';
+require_once __DIR__ . '/../../../_includes/admin_navbar.php';
 
 // Récupération de la chambre si elle existe
 if (!isset($_GET['id']) || empty($_GET['id'])) {
@@ -23,14 +23,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $request = $pdo->prepare('DELETE FROM bedroom WHERE id = :id');
     $request->execute(['id' => $_GET['id']]);
 
-    header('Location: /admin/chambres.php');
+    header('Location: /admin/chambres/chambres.php');
     exit;
 }
 
 // Variables pour le template
 $navbar = new Navbar();
 
-include __DIR__ . '/../../_includes/document_start.php';
+include __DIR__ . '/../../../_includes/document_start.php';
 ?>
 
 <div class="bg-body-tertiary pt-5">
@@ -62,4 +62,4 @@ include __DIR__ . '/../../_includes/document_start.php';
     </form>
 </div>
 
-<?php include __DIR__ . '/../../_includes/document_end.php'; ?>
+<?php include __DIR__ . '/../../../_includes/document_end.php'; ?>

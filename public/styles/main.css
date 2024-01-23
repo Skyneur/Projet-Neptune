@@ -1,17 +1,70 @@
-.nav.nav-container {
-    margin-bottom: -1px;
+h3 {
+    color: #D64980;
 }
 
-@font-face {
-    font-family: 'Bebas Neue';
-    src: url('/path-to-your-fonts/BebasNeue-Regular.ttf');
-}
-body {
-    font-family: 'Bebas Neue', sans-serif;
-}
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 9999; /* un nombre arbitrairement élevé pour s'assurer qu'il est au-dessus des autres éléments */
 }
+
+.nav.nav-container {
+    margin-bottom: -1px;
+}
+
+.nav-link {
+    color: #D64980;
+    --bs-nav-link-hover-color: #7E1941;
+}
+
+.nav-link2 {
+    display: block;
+    padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+    font-size: var(--bs-nav-link-font-size);
+    font-weight: var(--bs-nav-link-font-weight);
+    color: #000000;
+    text-decoration: none;
+    background: 0 0;
+    border: 0;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: var(--bs-nav-pills-link-active-color);
+    background: linear-gradient(20deg, #FF8F87, #D64980);
+}
+.pt-5 {
+    padding-top: 3.5rem!important;
+}
+
+.btn-primary {
+    color: #fff; /* --bs-btn-color */
+    background-image: linear-gradient(20deg, #FF8F87, #D64980);
+    border-color: #FF8F87;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #0b5ed7;
+    --bs-btn-hover-border-color: #0a58ca;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #0a58ca;
+    --bs-btn-active-border-color: #0a53be;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #0d6efd;
+    --bs-btn-disabled-border-color: #0d6efd;
+}
+
+.svg-inline--fa {
+    display: var(--fa-display, inline-block);
+    height: 1em;
+    overflow: visible;
+    vertical-align: -0.150em;
+}
+
+.form-check-input:checked {
+    background-color: #D64980;
+    border-color: #FF8F87;
+}
+
+#FF8F87 #D64980

@@ -4,12 +4,12 @@ class Navbar
 {
     public array $tabs = [
         'chambres' => [
-            'href' => '/admin/chambres.php',
+            'href' => '/admin/chambres/chambres.php',
             'label' => 'Chambres',
             'icon' => 'fa-bed'
         ],
         'utilisateurs' => [
-            'href' => '/admin/utilisateurs.php',
+            'href' => '/admin/users/utilisateurs.php',
             'label' => 'Utilisateurs',
             'icon' => 'fa-users'
         ],
@@ -25,7 +25,7 @@ class Navbar
         $content = <<<EOT
         <div class="border-bottom">
             <div class="container">
-                <ul class="nav nav-tabs nav-container">
+                <ul class="nav nav-pills flex-column flex-sm-row">
         EOT;
 
         foreach ($this->tabs as $key => $tab) {
@@ -65,7 +65,7 @@ function getNavbarItem(string $tabName, string $activeTab): string {
     $active = $tabName === $activeTab ? ' active' : '';
     $content = <<<EOT
     <li class="nav-item">
-        <a href="/admin/chambres.php" class="nav-link$active">
+        <a href="/admin/chambres/chambres.php" class="nav-link$active">
             Chambres
         </a>
     </li>
