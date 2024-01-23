@@ -1,17 +1,48 @@
 <?php
 
+include_once __DIR__ . '/../bootstrap.php';
+
 require_once __DIR__ . '/../database.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Vérification qu'on a toutes les infos nécessaires
+// Formulaire d'inscription
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
     if (
-        (!isset($_POST['email']) || !isset($_POST['password']))
-        || (empty($_POST['email']) || empty($_POST['password']))
+        empty($_POST['name']) ||
+        empty($_POST['firstname']) ||
+        empty($_POST['email']) ||
+        empty($_POST['password'])
     ) {
-        die("Le formulaire n'est pas complet. ");
+        die("Le formulaire d'inscription n'est pas complet.");
     }
 
-    // On vérifie que l'utilisateur existe
+    // Vérifie si l'utilisateur existe déjà
+    $request = $pdo->prepare('SELECT id FROM users u WHERE u.email = :email');
+    $request->execute(['email' => $_POST['email']]);
+
+    if ($request->fetch()) {
+        die("L'utilisateur existe déjà.");
+    }
+
+    // Inscription
+    $request = $pdo->prepare('INSERT INTO users(name, firstname, email, password) VALUES(:name, :firstname, :email, :password)');
+    $request->execute([
+        'name' => $_POST['name'],
+        'firstname' => $_POST['firstname'],
+        'email' => $_POST['email'],
+        'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
+    ]);
+
+    header('Location: /login.php');
+    exit;
+}
+
+// Formulaire de connexion
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['register'])) {
+    if (empty($_POST['email']) || empty($_POST['password'])) {
+        die("Le formulaire de connexion n'est pas complet.");
+    }
+
+    // Vérifie si l'utilisateur existe
     $request = $pdo->prepare('SELECT * FROM users u WHERE u.email = :email');
     $request->execute(['email' => $_POST['email']]);
 
@@ -19,12 +50,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("L'utilisateur n'existe pas.");
     }
 
-    // On vérifie si le mot de passe est bon
+    // Vérifie si le mot de passe est correct
     if (!password_verify($_POST['password'], $result['password'])) {
         die("La paire email/mot de passe est incorrecte.");
     }
 
-    // On démarre la session
+    // Démarre la session
     session_start();
     $_SESSION['user'] = $result;
 
@@ -104,21 +135,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <p class="text">Se connecter avec un mail<p>
         </div>
                     <form action="" method="post">
+                        <input type="hidden" name="register" value="1">
+
             <div class="field">
                 <i class="uil uil-at"></i>
                 <input type="email" placeholder="Email" name="email" required>
             </div>
             <div class="field">
                 <i class="uil uil-user"></i>
-                <input type="text" placeholder="Nom" required>
+                <input type="text" placeholder="Nom" name="name" required>
+            </div>
+                        <div class="field">
+                <i class="uil uil-user"></i>
+                <input type="text" placeholder="Prénom" name="firstname" required>
             </div>
             <div class="field">
                 <i class="uil uil-lock-alt"></i>
                 <input type="password" placeholder="Mot De Passe" name="password" required>
-            </div>
-            <div class="field">
-                <i class="uil uil-lock-access"></i>
-                <input type="password" placeholder="Mot De Passe" required>
             </div>
             <input class="submit-btn" type="submit" value="Envoyer">
         </form>
