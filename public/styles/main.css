@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
 h3 {
     color: #D64980;
 }
@@ -43,8 +52,8 @@ h3 {
     background-image: linear-gradient(20deg, #FF8F87, #D64980);
     border-color: #FF8F87;
     --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: #0b5ed7;
-    --bs-btn-hover-border-color: #0a58ca;
+    --bs-btn-hover-bg: #FF8F87;
+    --bs-btn-hover-border-color: #D64980;
     --bs-btn-focus-shadow-rgb: 49, 132, 253;
     --bs-btn-active-color: #fff;
     --bs-btn-active-bg: #0a58ca;
@@ -67,4 +76,20 @@ h3 {
     border-color: #FF8F87;
 }
 
-#FF8F87 #D64980
+th a {
+    color: inherit;  /* change link color to match parent */
+    text-decoration: none;  /* remove underline */
+}
+th a::after {
+    visibility: hidden;
+}
+
+th a[data-order='asc']::after {
+    content: "🔻";
+    visibility: visible;
+}
+
+th a[data-order='desc']::after {
+    content: "🔺";
+    visibility: visible;
+}

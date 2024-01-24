@@ -1,0 +1,115 @@
+
+.text{
+    position: absolute;
+    top: 250px;
+    left: 50px;
+    z-index: 2;
+}
+.text h2{
+    font-size: 5em;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1em;
+    text-transform: uppercase;
+    animation: text 3s 1;
+    z-index: 2;
+}
+
+@keyframes text {
+    0%{
+        margin-bottom: 50px;
+    }
+    40%{
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+}
+
+.text h3{
+    font-size: 4em;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1em;
+    text-transform: uppercase;
+}
+.text p{
+    font-size: 1.1em;
+    color: #fff;
+    margin: 20px 0;
+    font-weight: 400;
+    max-width: 700px;
+}
+.text a{
+    color: #fff; /* --bs-btn-color */
+    background-image: linear-gradient(20deg, #FF8F87, #D64980);
+    border-color: #FF8F87;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #FF8F87;
+    --bs-btn-hover-border-color: #D64980;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #FF8F87;
+    --bs-btn-active-border-color: #FF8F87;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #FF8F87;
+    --bs-btn-disabled-border-color: #FF8F87;
+}
+
+.social{
+    position: absolute;
+    z-index: 10;
+    left: 15px;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.social li{
+    list-style: none;
+}
+.social li a{
+    display: inline-block;
+    margin-right: 20px;
+    filter: invert(1);
+    transform: scale(0.5);
+    transition: 0.5s;
+}
+.social li a:hover{
+    transform: scale(0.5) translateY(-15px);
+}
+
+@media (max-width: 991px)
+{
+    .showcase,
+  .showcase header
+  {
+      padding: 40px;
+  }
+  .text h2
+  {
+      font-size: 3em;
+  }
+  .text h3
+  {
+      font-size: 2em;
+  }
+}
+.showcase video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+.video-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}

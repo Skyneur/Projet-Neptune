@@ -259,7 +259,6 @@ body{
     width: 100%;
   }
 }
-
 @media screen and (max-width: 325px){
   .other-logins a{
     padding: 9px 25px;

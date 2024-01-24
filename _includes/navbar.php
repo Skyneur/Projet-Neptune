@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="main-navbar">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" href="/../admin/chambres/chambres.php">
+                    <a class="nav-link active" href="/../users/chambres/chambres.php">
                         <i class="fa-duotone fa-bed fa-lg"  style="--fa-primary-color: #FF8F87; --fa-secondary-color: #D64980;"></i>
                         Chambres
                     </a>

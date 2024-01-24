@@ -32,8 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $request = $pdo->prepare('
         UPDATE bedroom 
         SET 
-            number = :number, 
-            bathroom = :bathroom, 
+            number = :number,
+            bathroom = :bathroom,
             wc = :wc, 
             expo = :expo, 
             double_bed = :double_bed, 
